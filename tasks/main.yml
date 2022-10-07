@@ -1,10 +1,10 @@
 ---
-# tasks file for github
-- name: Variables
-  include_vars: "{{ item }}"
-  with_first_found:
-    - "vars_{{ ansible_os_family }}.yml"
-    - vars.yml
+# # tasks file for github
+#  - name: Variables
+#   include_vars: "{{ item }}"
+#   with_first_found:
+#     - "vars_{{ ansible_os_family }}.yml"
+#     - vars.yml
 
 
 - name: packages

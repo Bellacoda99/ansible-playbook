@@ -1,2 +1,23 @@
 ---
 # tasks file for github
+- name: Variables
+include_vars: "{{ item }}"
+with_first_found:
+- "vars_{{ ansible_os_family }}.yml"
+- vars.yml
+
+
+- name: packages
+  when: ansible_facts['os_family'] == "RedHat"
+  yum:
+    name:  httpd
+    state: latest
+    update_cache: true
+    
+
+- name: packages install
+  when: ansible_facts['os_family'] == "Debian"
+  apt:
+    pkg: apache2
+    state: latest
+    update_cache: yes

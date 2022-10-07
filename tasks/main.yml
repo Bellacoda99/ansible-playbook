@@ -11,7 +11,7 @@
   when: ansible_facts['os_family'] == "RedHat"
   yum:
     name:  httpd
-    state: absent
+    state: latest
     update_cache: true
     
 
@@ -19,5 +19,5 @@
   when: ansible_facts['os_family'] == "Debian"
   apt:
     pkg: apache2
-    state: absent
+    state: latest
     update_cache: yes
